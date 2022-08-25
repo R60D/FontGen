@@ -2,7 +2,7 @@ from msilib.schema import Font
 from PIL import Image, ImageDraw, ImageFont
 import string
 import os
-import concat_images.concat_images as concat
+import concat.concat_images as concat
 
 #variables
 size = 512
