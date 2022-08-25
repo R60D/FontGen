@@ -2,11 +2,14 @@ from msilib.schema import Font
 from PIL import Image, ImageDraw, ImageFont
 import string
 import os
+import concat_images.concat_images as concat
+
 #variables
 size = 512
 allchar = list(string.ascii_uppercase)
 fontname = "arial"
 font = ImageFont.truetype(f"{fontname}.ttf", size=size)
+image_paths = []
 
 def foldergen(foldername):
         # Create directory
@@ -23,10 +26,19 @@ def fontgen(char):
     xText = (size - textWidth) / 2
 
     imgDraw.text((xText, 0), char, font=font, fill=(255, 255, 255))
-
-    img.save(f'{fontname}/{allchar.index(char)}.png')
+    path = f'{fontname}/{allchar.index(char)}.png'
+    img.save(path)
+    image_paths.append(path)
 
 #init
 foldergen(fontname)
 for letter in allchar:
     fontgen(letter)
+
+
+# Get list of image paths
+
+
+# Create and save image grid
+image = concat.concat_images(image_paths, (size, size))
+image.save('ImageMatrix.png', 'PNG')
