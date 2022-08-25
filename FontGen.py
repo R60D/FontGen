@@ -41,4 +41,4 @@ for letter in allchar:
 
 # Create and save image grid
 image = concat.concat_images(image_paths, (size, size))
-image.save('ImageMatrix.png', 'PNG')
+image.save(f'{fontname}/ImageMatrix.png', 'PNG')
