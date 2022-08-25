@@ -1,0 +1,3 @@
+[submodule "concat_images"]
+	path = concat_images
+	url = https://gist.github.com/njanakiev/1932e0a450df6d121c05069d5f7d7d6f
